@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - MMDENTS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">MMDENTS</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html" class="active">Book Service</a></li>
+                <li><a href="status.html">Check Status</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h2>Schedule a Repair</h2>
+            <form id="bookingForm">
+                <fieldset>
+                    <legend>Customer Details</legend>
+                    <div class="form-group">
+                        <label for="customerName">Full Name</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number</label>
+                        <input type="tel" id="customerPhone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Car Details</legend>
+                    <div class="form-group">
+                        <label for="carModel">Car Make & Model</label>
+                        <input type="text" id="carModel" required placeholder="e.g., VW Polo">
+                    </div>
+                    <div class="form-group">
+                        <label for="regNumber">Registration Number</label>
+                        <input type="text" id="regNumber" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Select Services</legend>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="servicePanel" name="service" value="1650">
+                        <label for="servicePanel">Panel Work (R1650)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="serviceRim" name="service" value="2000">
+                        <label for="serviceRim">Rim Refurbishment (R2000)</label>
+                    </div>
+                </fieldset>
+
+                <div class="quote-display">
+                    <h3>Estimated Cost: <span id="totalCost">R 0.00</span></h3>
+                </div>
+
+                <button type="submit" class="btn primary-btn">Confirm Booking</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3>Booking Confirmed!</h3>
+            <p>Your reference number is: <strong id="modalRef"></strong></p>
+            <button onclick="closeModal()" class="btn">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
